@@ -33,28 +33,26 @@ public class Prompt {
 
 		int month = 1;
 		int year = 2017;
-		int weekday = 0;
+//		int weekday = 0; // 요일을 자동으로 계산하기 때문에 이제 필요없음.
 
 		while (true) {
-			System.out.println("출력할 년도를 입력해주세요.");
+			System.out.println("출력할 년도를 입력해주세요.(exit: -1)");
 			System.out.print("YEAR> ");
 			year = scanner.nextInt();
 
 			if (year == -1) {
 				break;
 			}
-			System.out.println("출력할 월을 입력해주세요.");
+			System.out.println("출력할 월을 입력해주세요.(exit: -1)");
 			System.out.print("MONTH> ");
 			month = scanner.nextInt();
-			System.out.println("첫째 날의 요일을 압력하세요(su, mo, tu, wd, th, fr, sa)");
-			String str_weekday = scanner.next();
-			weekday = parsDay(str_weekday);
-			System.out.println(str_weekday + ", " + weekday);
+
 			if (month == -1) {
 				break;
 			}
 
-			if (month > 12) {
+			if (month > 12 || month < 1) {
+				System.err.println("잘못된 입력입니다");
 				continue;
 			}
 
